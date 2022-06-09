@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FarmApp.Views.SignUpPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" Padding="20" VerticalOptions="CenterAndExpand">
+
+                <Frame BackgroundColor="Gray">
+
+                    <StackLayout>
+                        <Entry Placeholder="Firstname" Text="{Binding FirstName}" Keyboard="Text"/>
+                        <Entry Placeholder="lastName" Text="{Binding LastName}" Keyboard="Text"/>
+                        <Entry Placeholder="email" Text="{Binding Email}" Keyboard="Email"/>
+                        <Entry Placeholder="phone" Text="{Binding Phone}" Keyboard="Telephone"/>
+                        <Entry Placeholder="farm" Text="{Binding Farm}" Keyboard="Text"/>
+                        <Entry Placeholder="password" Text="{Binding Password}" Keyboard="Text"/>
+
+                        <Button Text="SIGN UP" TextColor="White" Command="{Binding BtnSignUpSignUp}" BackgroundColor="DeepSkyBlue"/>
+
+                        <Label Text="Already have an account? SignIn" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

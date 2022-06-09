@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FarmApp.Views.ProfilePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Spacing="40">
+
+            <Frame BackgroundColor="Gray">
+                <Image Source="icon_about.png"/>
+                <Entry Placeholder="Username" IsPassword="False"/>
+                <Entry Placeholder="Lastname" IsPassword="False"/>
+                <Entry Placeholder="Email Address" IsPassword="False"/>
+                <Entry Placeholder="Password" IsPassword="False"/>
+
+            </Frame>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

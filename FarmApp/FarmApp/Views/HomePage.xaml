@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="FarmApp.Views.HomePage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+           
+
+            <Button />
+            <Entry />
+
+            <Frame CornerRadius="5">
+                <StackLayout>
+
+                    <CollectionView EmptyView="no dat">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame>
+                                        <StackLayout>
+                                            
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        
+                        <CollectionView.EmptyViewTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <yummy:PancakeView BackgroundColor="Aqua" HeightRequest="90" Margin="0" CornerRadius="20" >
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Text="Item"/>
+                                        </StackLayout>
+                                    </yummy:PancakeView>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.EmptyViewTemplate>
+                    </CollectionView>
+                    
+                </StackLayout>
+               
+            </Frame>
+
+            <Grid>
+                
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
