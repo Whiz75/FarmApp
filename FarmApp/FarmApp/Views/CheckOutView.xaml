@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FarmApp.Views.CheckOutView">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Product pricing-->
+            <Label Grid.Row="2" Grid.Column="0" Text="Subtotal:" TextColor="#828282" FontAttributes="Bold"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Price}" FontSize="25" HorizontalTextAlignment="End" FontAttributes="Bold"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Shipping:" FontSize="20" TextColor="#828282" FontAttributes="Bold"/>
+            <Label Grid.Row="3" Grid.Column="1" Text="$5" FontSize="25" HorizontalTextAlignment="End" FontAttributes="Bold"/>
+            
+            <!-- Division line-->
+            <Line Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" 
+                  StrokeDashArray="1,7" X2="320" StrokeLineCap="Square" Stroke="Silver" StrokeThickness="2"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Total Price" TextColor="#828282" FontSize="15" FontAttributes="Bold"/>
+            <Label Grid.Row="6" Grid.Column="0" Text="{Binding Price}" FontSize="25" FontAttributes="Bold"/>
+
+            <Button  Grid.Row="5" Grid.RowSpan="2" Grid.Column="1" BackgroundColor="#fb9c2c"
+                     TextColor="White" FontAttributes="Bold" CornerRadius="20" HeightRequest="60"
+                     FontSize="17" Text="Checkout" WidthRequest="220"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

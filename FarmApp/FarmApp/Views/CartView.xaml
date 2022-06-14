@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:updown="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+             x:Class="FarmApp.Views.CartView">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <!-- Main Layout-->
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,Auto" 
+                  RowSpacing="20" Margin="30,70,30,10">
+                <!-- Cart main label-->
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Cart"
+                       FontSize="20" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                
+                <!-- Cart information / collection view of all the products-->
+                <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                                HorizontalScrollBarVisibility="Never" Margin="0,20,0,0"
+                                ItemsSource="{Binding CartDetails}" HeightRequest="480">
+                    
+                    <CollectionView.ItemTemplate>
+                        
+                        <DataTemplate>
+                            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" 
+                                  RowSpacing="20" Padding="0,0,10,0" Margin="0,0,0,30">
+
+                                <!-- Product Image-->
+                                <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Padding="0,0,10,0" 
+                                       WidthRequest="110" HeightRequest="110" VerticalOptions="FillAndExpand" 
+                                       HorizontalOptions="Start" HasShadow="False" IsClippedToBounds="True"
+                                       CornerRadius="20" >
+                                    <Image Source="{Binding Picture}" Aspect="AspectFill" />
+                                </Frame>
+                                
+                                <!-- Product Name-->
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" FontSize="18" FontAttributes="Bold"/>
+                                <!-- Product Category-->
+                                <Button Grid.Row="0" Grid.Column="2" Text="{Binding Category}" HorizontalOptions="End" BorderColor="#828282" TextColor="#828282" FontSize="15" CornerRadius="6" HeightRequest="28" WidthRequest="28" BorderWidth="1" />
+                                <!-- Product price-->
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Price}" FontAttributes="Bold" FontSize="18" TextColor="#fb9c2c"/>
+
+                                <!-- counter - Syncfusion's NumericUpDown control-->
+                                <updown:SfNumericUpDown x:Name="upDown" Grid.Row="2" Grid.Column="1" BorderColor="Transparent" Margin="0,0,50,0" SpinButtonAlignment="Both" TextAlignment="Center">
+                                    <updown:SfNumericUpDown.IncrementButtonSettings>
+                                        <updown:UpDownButtonSettings ButtonImage="More" ButtonHeight="40" ButtonWidth="40" />
+                                    </updown:SfNumericUpDown.IncrementButtonSettings>
+                                    <updown:SfNumericUpDown.DecrementButtonSettings>
+                                        <updown:UpDownButtonSettings ButtonImage="Less" ButtonHeight="40" ButtonWidth="40" />
+                                    </updown:SfNumericUpDown.DecrementButtonSettings>
+                                </updown:SfNumericUpDown>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

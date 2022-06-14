@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="FarmApp.Views.OrdersCart">
+    <ContentPage.Content>
+        <StackLayout>
+            <yummy:PancakeView
+                BackgroundColor="WhiteSmoke" 
+                HeightRequest="90" 
+                WidthRequest="100" 
+                Margin="0" 
+                CornerRadius="20" >
+                <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
+                    
+                    <Grid RowDefinitions="*,*" >
+                        <Image Grid.Row="0" VerticalOptions="Start" Source="Model01"/>
+                        <!-- Picture information-->
+                        <Frame 
+                            Grid.Row="1" 
+                            Background="White" 
+                            Margin="0,-30,0,0" 
+                            HasShadow="False" 
+                            CornerRadius="50" 
+                            VerticalOptions="FillAndExpand">
+                            
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,Auto" Padding="20">
+                                <!-- Product Name -->
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" 
+                                       FontAttributes="Bold" FontSize="23"/>
+                                <!-- Product Price-->
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Price}" FontAttributes="Bold" 
+                                       FontSize="23" TextColor="#fb9c2c"/>
+                                
+                                <!-- Product Description-->
+                                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" LineHeight="1.5" 
+                                       TextColor="Gray" Margin="0,15" 
+                                       Text="{Binding Description}"/>
+                                
+                                <!-- Product Category-->
+                                <Label Grid.Row="2" Grid.Column="0" Text="{Binding Category}" FontAttributes="Bold" FontSize="18"
+                                      />
+
+                                <!-- button to go cart-->
+                                <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#fb9c2c"
+                                                  TextColor="White" FontAttributes="Bold" CornerRadius="20"
+                                        HeightRequest="60" FontSize="17" Text="Move to cart" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
