@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FarmApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace FarmApp.Views
         public HomePage()
         {
             InitializeComponent();
+            BindingContext = new HomeViewModel();
         }
     }
 }

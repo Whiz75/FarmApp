@@ -3,6 +3,8 @@ using FarmApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Input;
@@ -78,38 +80,38 @@ namespace FarmApp.ViewModels
             Customer customer = new Customer()
             {
                 FirstName = firstName,
-                CreatedDate = DateTimeOffset.Now,
                 LastName = lastName,
                 Email = email,
                 Password = password,
                 Phone = phone,
-               
             };
 
-           
 
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(customer);
+
+            string str_reader = null;
 
             try
             {
-                string json = Newtonsoft.Json.JsonConvert.SerializeObject(customer);
-                string uri = "https://farm-web-api.herokuapp.com/api/Customers";
-                StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.SendAsync(uri, stringCont);
+                WebRequest webRequest = WebRequest.Create("https://farm-web-api.herokuapp.com/api/Customers/");
+                webRequest.Method = "POST";
+                webRequest.ContentType = "application/json";
+                Stream stream = webRequest.GetRequestStream();
+                byte[] byteArray = Encoding.UTF8.GetBytes(json);
+                await stream.WriteAsync(byteArray, 0, byteArray.Length);
+                stream.Close();
 
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    await Application.Current.MainPage.DisplayAlert("", "successful", "GOT IT");
-                }
-                else
-                {
-                    await Application.Current.MainPage.DisplayAlert("", "unsuccessful", "GOT IT");
-                }
+                var response = webRequest.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                str_reader = reader.ReadToEnd();
+
+                await Application.Current.MainPage.DisplayAlert("", str_reader, "GOT IT");
+
             }
-            catch(Exception e)
+            catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("", e.ToString(), "GOT IT");
+                await Application.Current.MainPage.DisplayAlert("", ex.ToString(), "GOT IT");
             }
-
         }
 
     }

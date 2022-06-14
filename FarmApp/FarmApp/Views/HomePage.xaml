@@ -6,19 +6,16 @@
         <StackLayout Orientation="Vertical">
            
 
-            <Button />
-            <Entry />
-
             <Frame CornerRadius="5">
                 <StackLayout>
 
-                    <CollectionView EmptyView="no dat">
+                    <CollectionView EmptyView="no dat" ItemsSource="{Binding Products}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
                                     <Frame>
                                         <StackLayout>
-                                            
+                                            <Label Text="{Binding Name}" />
                                         </StackLayout>
                                     </Frame>
                                 </StackLayout>
@@ -29,10 +26,10 @@
                             <DataTemplate>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
                                     </Grid.ColumnDefinitions>
-                                    <yummy:PancakeView BackgroundColor="Aqua" HeightRequest="90" Margin="0" CornerRadius="20" >
-                                        <StackLayout VerticalOptions="Center">
+                                    <yummy:PancakeView BackgroundColor="Aqua" HeightRequest="90" WidthRequest="100" Margin="0" CornerRadius="20" >
+                                        <StackLayout VerticalOptions="CenterAndExpand">
                                             <Label Text="Item"/>
                                         </StackLayout>
                                     </yummy:PancakeView>

@@ -1,27 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="FarmApp.Views.SignUpPage">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Vertical" Padding="20" VerticalOptions="CenterAndExpand">
+        <StackLayout BackgroundColor="Purple">
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="CenterAndExpand"
+                         Padding="20">
 
-                <Frame BackgroundColor="Gray">
+                <yummy:PancakeView
+                    CornerRadius="32,32,32,32"
+                    HeightRequest="500"
+                    BackgroundColor="White"
+                    Padding="20">
+                    
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Label Text="Login" TextColor="Gray" FontSize="Caption"></Label>
+                        
+                        <Entry Placeholder="Firstname" PlaceholderColor="Gray" Text="{Binding FirstName}" Keyboard="Text" TextColor="Gray" />
+                        <Entry Placeholder="lastName" PlaceholderColor="Gray" Text="{Binding LastName}" Keyboard="Text" TextColor="Gray"/>
+                        <Entry Placeholder="email" PlaceholderColor="Gray" Text="{Binding Email}" Keyboard="Email" TextColor="Gray"/>
+                        <Entry Placeholder="phone" PlaceholderColor="Gray" Text="{Binding Phone}" Keyboard="Telephone" TextColor="Gray"/>
+                        <Entry Placeholder="password" PlaceholderColor="Gray" Text="{Binding Password}" Keyboard="Text" TextColor="Gray"/>
 
-                    <StackLayout>
-                        <Entry Placeholder="Firstname" Text="{Binding FirstName}" Keyboard="Text"/>
-                        <Entry Placeholder="lastName" Text="{Binding LastName}" Keyboard="Text"/>
-                        <Entry Placeholder="email" Text="{Binding Email}" Keyboard="Email"/>
-                        <Entry Placeholder="phone" Text="{Binding Phone}" Keyboard="Telephone"/>
-                        <Entry Placeholder="farm" Text="{Binding Farm}" Keyboard="Text"/>
-                        <Entry Placeholder="password" Text="{Binding Password}" Keyboard="Text"/>
-
-                        <Button Text="SIGN UP" TextColor="White" Command="{Binding BtnSignUpSignUp}" BackgroundColor="DeepSkyBlue"/>
+                        <Button Text="SIGN UP" TextColor="White" Command="{Binding BtnSignUpSignUp}" BackgroundColor="Purple"/>
 
                         <Label Text="Already have an account? SignIn" HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
-                </Frame>
-                
+                </yummy:PancakeView>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
