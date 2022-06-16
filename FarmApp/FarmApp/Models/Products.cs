@@ -2,17 +2,27 @@
 
 namespace FarmApp.Models
 {
-    public class Products
+    using System;
+    using Newtonsoft.Json;
+
+    public partial class Products
     {
-        //[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Display(Name = "Id#")]
-        public int ProductId { get; set; }
+        [JsonProperty("productId")]
+        public long ProductId { get; set; }
+
+        [JsonProperty("name")]
         public string Name { get; set; }
-        public string Type { get; set; }
+
+        [JsonProperty("description")]
         public string Description { get; set; }
-        public double Price { get; set; }
-        public int Quantity { get; set; }
-        // 
-        public Farm Farm { get; set; }
-        public int FarmId { get; set; }
+
+        [JsonProperty("price")]
+        public long Price { get; set; }
+
+        [JsonProperty("quantity")]
+        public long Quantity { get; set; }
+
+        [JsonProperty("categoryId")]
+        public long CategoryId { get; set; }
     }
 }

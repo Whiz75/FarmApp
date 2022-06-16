@@ -4,47 +4,46 @@
              x:Class="FarmApp.Views.HomePage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-           
+
 
             <Frame CornerRadius="5">
                 <StackLayout>
 
-                    <CollectionView EmptyView="no dat" ItemsSource="{Binding Products}">
+                    <CollectionView  ItemsSource="{Binding Products}" x:Name="ProductLis" Margin="0">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout>
-                                    <Frame>
-                                        <StackLayout>
-                                            <Label Text="{Binding Name}" />
-                                        </StackLayout>
-                                    </Frame>
-                                </StackLayout>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                        
-                        <CollectionView.EmptyViewTemplate>
-                            <DataTemplate>
-                                <Grid>
+                                <Grid Padding="10" Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <yummy:PancakeView BackgroundColor="Aqua" HeightRequest="90" WidthRequest="100" Margin="0" CornerRadius="20" >
-                                        <StackLayout VerticalOptions="CenterAndExpand">
-                                            <Label Text="Item"/>
+
+                                    <yummy:PancakeView
+                                        CornerRadius="10,10,10,10"
+                                        HeightRequest="50"
+                                        BackgroundColor="Gray"
+                                        Padding="20">
+
+                                        <yummy:PancakeView.Shadow>
+                                            <yummy:DropShadow Color="Gray"/>
+                                        </yummy:PancakeView.Shadow>
+
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Grid.Column="1" Text="{Binding Name}"/>
                                         </StackLayout>
                                     </yummy:PancakeView>
                                 </Grid>
                             </DataTemplate>
-                        </CollectionView.EmptyViewTemplate>
-                    </CollectionView>
-                    
-                </StackLayout>
-               
-            </Frame>
+                        </CollectionView.ItemTemplate>
 
-            <Grid>
-                
-            </Grid>
+                    </CollectionView>
+
+                </StackLayout>
+
+            </Frame>
 
         </StackLayout>
     </ContentPage.Content>

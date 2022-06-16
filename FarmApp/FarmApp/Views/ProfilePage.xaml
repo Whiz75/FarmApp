@@ -1,18 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="FarmApp.Views.ProfilePage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="40">
 
-            <Frame BackgroundColor="Gray">
-                <Image Source="icon_about.png"/>
-                <Entry Placeholder="Username" IsPassword="False"/>
-                <Entry Placeholder="Lastname" IsPassword="False"/>
-                <Entry Placeholder="Email Address" IsPassword="False"/>
-                <Entry Placeholder="Password" IsPassword="False"/>
+            <yummy:PancakeView
+                    CornerRadius="10,10,10,10"
+                    HeightRequest="500"
+                    BackgroundColor="White"
+                    Padding="20">
 
-            </Frame>
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+
+                    <Label Text="PROFILE" TextColor="Black"  FontSize="Medium" Margin="10"/>
+
+                    <Image Source="" HorizontalOptions="Center"/>
+                    
+                    <input:AdvancedEntry 
+                            Text="{Binding FirstName}"
+                            TextColor="Gray"
+                            IsRequired="True"
+                            TitleColor="Gray"
+                            Annotation="Email"
+                            Placeholder="First name"
+                            AnnotationColor="Accent"
+                            IconImage="ic_email_black_24dp.png"
+                            MinLength="10"
+                            MaxLength="50"
+                            CornerRadius="3"
+                            />
+
+                    <input:AdvancedEntry 
+                            Text="{Binding LastName}"
+                            TextColor="Gray"
+                            IsRequired="True"
+                            TitleColor="Gray"
+                            Annotation="Email"
+                            Placeholder="Last name"
+                            AnnotationColor="Accent"
+                            IconImage="ic_email_black_24dp.png"
+                            MinLength="10"
+                            MaxLength="50"
+                            CornerRadius="3"
+                            />
+
+                    <input:AdvancedEntry 
+                            Text="{Binding Email}"
+                            TextColor="Gray"
+                            IsRequired="True"
+                            TitleColor="Gray"
+                            Annotation="Email"
+                            Placeholder="Email"
+                            AnnotationColor="Accent"
+                            IconImage="ic_email_black_24dp.png"
+                            MinLength="10"
+                            MaxLength="50"
+                            CornerRadius="3"
+                            />
+
+                    <input:AdvancedEntry 
+                            Text="{Binding Phone}"
+                            TextColor="Gray"
+                            IsRequired="True"
+                            TitleColor="Gray"
+                            Annotation="Email"
+                            Placeholder="Phone"
+                            AnnotationColor="Accent"
+                            IconImage="ic_email_black_24dp.png"
+                            MinLength="10"
+                            MaxLength="50"
+                            CornerRadius="3"
+                            />
+
+                    <Button Text="UPDATE" TextColor="White" BackgroundColor="MediumPurple"
+                                CornerRadius="3" />
+                </StackLayout>
+            </yummy:PancakeView>
+
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

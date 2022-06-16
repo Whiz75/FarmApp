@@ -17,20 +17,6 @@ namespace FarmApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private int productId;
-        private string productName;
-        private string productType;
-        private string productDescription;
-        private double productPrice;
-        private int productQuantity;
-        private int farmId;
-
-        //private Products product;
-        //public Products Products
-        //{
-        //    get { return product; }
-        //    set { product = value; PropertyChanged(this, new PropertyChangedEventArgs("Products")); }
-        //}
         private ObservableCollection <Products> products = new ObservableCollection<Products>();
         public ObservableCollection <Products> Products { get { return products; }set { products = value; } }
 

@@ -42,7 +42,7 @@ namespace FarmApp.ViewModels
 
         private async void SignUp()
         {
-            //await Application.Current.Navigation.PushAsync(new SignUpPage());
+            
         }
     }
 }

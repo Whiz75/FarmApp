@@ -70,7 +70,14 @@ namespace FarmApp.ViewModels
 
         public async void  BackToLogin()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            try
+            {
+                await App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            }
+            catch(Exception e)
+            {
+                await Application.Current.MainPage.DisplayAlert("Exception", e.ToString(), "GOT IT");
+            }
         }
 
         public async void Register()
