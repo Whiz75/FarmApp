@@ -1,4 +1,5 @@
-﻿using FarmApp.ViewModels;
+﻿using FarmApp.Models;
+using FarmApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,14 @@ namespace FarmApp.Views
         {
             InitializeComponent();
             BindingContext = new HomeViewModel();
+        }
+
+        private void CategoriesLis_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var id = e.CurrentSelection.FirstOrDefault() as Category;
+            Navigation.PushModalAsync(new ProductsPage(id.Id));
+            
         }
     }
 }

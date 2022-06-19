@@ -5,37 +5,32 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
 
-
-            <Frame CornerRadius="5">
+            <Label Text="CATEGORIES" Margin="10" FontAttributes="Bold" />
+            <Frame CornerRadius="5" Margin="5">
                 <StackLayout>
 
-                    <CollectionView  ItemsSource="{Binding Products}" x:Name="ProductLis" Margin="0">
+                    <CollectionView  
+                        ItemsSource="{Binding Category}" x:Name="CategoriesLis" SelectionMode="Single"
+                                     SelectionChanged="CategoriesLis_SelectionChanged" Margin="0">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="5" Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
+                            
                             <DataTemplate>
-                                <Grid Padding="10" Margin="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
+                                
                                     <yummy:PancakeView
                                         CornerRadius="10,10,10,10"
-                                        HeightRequest="50"
                                         BackgroundColor="Gray"
-                                        Padding="20">
-
+                                        Padding="20" Margin="10">
                                         <yummy:PancakeView.Shadow>
                                             <yummy:DropShadow Color="Gray"/>
                                         </yummy:PancakeView.Shadow>
-
                                         <StackLayout Orientation="Vertical">
-                                            <Label Grid.Column="1" Text="{Binding Name}"/>
+                                            <Label TextColor="White" Text="{Binding Name}" VerticalOptions="CenterAndExpand"/>
                                         </StackLayout>
                                     </yummy:PancakeView>
-                                </Grid>
+                                
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
 

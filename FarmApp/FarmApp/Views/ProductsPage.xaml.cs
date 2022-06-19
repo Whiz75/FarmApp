@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FarmApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace FarmApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrdersCart : ContentPage
+    public partial class ProductsPage : ContentPage
     {
-        public OrdersCart()
+        public ProductsPage(int id)
         {
             InitializeComponent();
+            BindingContext = new ProductsViewModel(id);
         }
     }
 }

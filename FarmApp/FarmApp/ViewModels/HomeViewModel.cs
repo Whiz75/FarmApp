@@ -17,30 +17,22 @@ namespace FarmApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection <Products> products = new ObservableCollection<Products>();
-        public ObservableCollection <Products> Products { get { return products; }set { products = value; } }
+        //private ObservableCollection <Products> products = new ObservableCollection<Products>();
+        //public ObservableCollection <Products> Products { get { return products; }set { products = value; } }
+        private ObservableCollection<Category> category = new ObservableCollection<Category>();
+        public ObservableCollection<Category> Category { get { return category; } set { category = value; } }
 
         public async Task GetProductsAsync()
         {
-            var productsList = new List<Products>();
-
-            //string json = Newtonsoft.Json.JsonConvert.SerializeObject();
-
-            //string str_reader = null;
-
             try
             {
-                WebRequest webRequest = WebRequest.Create("https://farm-web-api.herokuapp.com/api/Products/");
-                webRequest.Method = "GET";
-                webRequest.ContentType = "application/json";
-                Stream stream = webRequest.GetRequestStream();
-                stream.Close();
-
+                WebRequest webRequest = WebRequest
+                    .Create("https://farm-web-api.herokuapp.com/api/Categories/");
                 var response = webRequest.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 var str_reader = reader.ReadToEnd();
-
-                await Application.Current.MainPage.DisplayAlert("", str_reader, "GOT IT");
+                category = JsonConvert.DeserializeObject<ObservableCollection<Category>>(str_reader);
+                //await Application.Current.MainPage.DisplayAlert("", str_reader, "GOT IT");
 
             }
             catch (Exception ex)
